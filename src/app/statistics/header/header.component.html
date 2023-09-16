@@ -1,0 +1,48 @@
+<div class="statistics__header">
+  <div>
+    <div class="statistics__details">
+      <ng-container *ngFor="let piece of details">
+        <span>
+
+        </span>
+        <img [src]=" piece.icon" style='width:36px'>
+        <h4>{{piece.text}}</h4>
+        <h5 style="margin-right:10px">{{piece.content}}</h5>
+      </ng-container>
+
+    </div>
+  </div>
+
+  <div class="statistics__history">
+    <button class="active">Today</button>
+    <button>Yesterday</button>
+    <button>Last Week</button>
+  </div>
+  <div class="statistics__date">
+    <span></span>
+    <mat-form-field style="margin: -25px 0px;background:white">
+
+
+      <mat-label>Start date - time</mat-label>
+      <input matInput [matDatepicker]="picker">
+
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <span class="square"></span>
+    <mat-form-field style="margin: -25px 25px;background:white">
+
+
+      <mat-label>End date - time</mat-label>
+      <input matInput [matDatepicker]="picker2">
+
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+
+
+  </div>
+
+
+</div>

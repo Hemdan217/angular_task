@@ -1,0 +1,9 @@
+<div class="side__bar">
+  <img src="./assets/PMS.svg" class="logo" />
+  <div class="options d-flex flex-column" style="gap: 40px; align-items: center;">
+    <ng-container *ngFor="let option of options">
+      <img [src]="'./assets/' + option.icon" width="option.width" />
+    </ng-container>
+  </div>
+  <img src="./assets/logout.svg" width="43.95px" />
+</div>

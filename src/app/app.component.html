@@ -1,0 +1,13 @@
+<div class="main__page">
+  <app-side-bar></app-side-bar>
+
+  <div class="page__content">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#ff7f5c" type="line-spin-clockwise-fade" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

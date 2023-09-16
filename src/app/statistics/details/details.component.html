@@ -1,0 +1,73 @@
+<div style="display:flex; gap: 42px">
+  <div class="details-item" [ngClass]="{ 'active': item.active }" *ngFor="let item of values">
+    <h1>
+      {{ item.value }}
+      <span class="unit" [ngSwitch]="item.unit">
+        <ng-container *ngSwitchCase="'EGP'">
+          {{ item.unit }}
+        </ng-container>
+        <ng-container *ngSwitchCase="'m'">
+          {{ item.unit }} <sup>3</sup>
+        </ng-container>
+      </span>
+    </h1>
+    <h3>
+      {{ item.description }}
+    </h3>
+    <span class="indicator" [ngClass]="{'negative': item.indicator < 0}"></span>
+    <span>
+      {{ item.indicator }}</span>
+
+  </div>
+</div>
+<div class="options">
+  <span class="options__container">
+    <button [ngClass]="{'active': isActive === 'graph'}" (click)="setActive('graph')">
+      <span></span>
+      <span class="icon-bar2"></span>
+      <span class="icon-bar3"></span>
+      {{ 'graph' | uppercase }}
+    </button>
+
+    <button [ngClass]="{'active': isActive === 'list'}" (click)="setActive('list')">
+
+      <span class="icon-list" style="display:flex;margin: 2px 0 -6px 0;"></span>
+
+      <span class="icon-list" style="    margin: 2px 0 0 0;"></span>
+      {{ 'list' | uppercase }}
+
+    </button>
+  </span>
+</div>
+<div class="statistics__content" [style.background-color]="isActive === 'graph' ? 'white' : '#F9F5F3'">
+  <div *ngIf="isActive === 'graph'; else list">
+    <canvas id="hi" #barChartCanvas></canvas>
+  </div>
+</div>
+
+<ng-template #list>
+  <ng-container *ngFor="let i of [1,4,7,5]">
+    <div class="list-item">
+      <div class="first"> <span></span> <img src="./assets/gas-station-svgrepo-com-5.svg" width="53px" />
+        <h1>STATION NAME DUMMY</h1>
+      </div>
+      <div class="second">
+        <h3>Total Sales</h3>
+        <h4>62,721</h4>
+        <h3>Compression State</h3>
+        <h4>Compression</h4>
+        <h3>Max Transaction / hour</h3>
+        <h4>20</h4>
+        <h3>Total Value</h3>
+        <h4>550</h4>
+        <h3>Total Transaction Count</h3>
+        <h4>5161</h4>
+        <h3>Total Transaction Count</h3>
+        <h4>8-1-2021</h4>
+      </div>
+    </div>
+  </ng-container>
+
+
+
+</ng-template>
